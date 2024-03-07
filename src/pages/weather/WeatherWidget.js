@@ -19,8 +19,8 @@ const WeatherWidget = () => {
         const { latitude, longitude } = position.coords;
         fetch(
           cityName 
-          ? `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=c1a371b36f3b7f8176dfb3460a5d769e`
-          : `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=c1a371b36f3b7f8176dfb3460a5d769e`
+          ? `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+          : `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         )
           .then((response) => response.json())
           .then((data) => {
